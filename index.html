@@ -223,6 +223,17 @@
     .update-card time { color: #999; font-size: 11px; }
     .update-card h3 { margin: 4px 0; font-size: 15px; }
     .update-card p { margin: 0; color: #666; font-size: 12px; }
+    .sponsor-strip { border-top: 1px solid #bbb; border-bottom: 1px solid #bbb; background: #fff; }
+    .sponsor-grid { display: grid; grid-template-columns: 1.05fr repeat(3,1fr); }
+    .sponsor-lead, .sponsor-card { min-height: 150px; padding: 22px; border-right: 1px solid #bbb; }
+    .sponsor-card:last-child { border-right: 0; }
+    .sponsor-lead { background: var(--soft); }
+    .sponsor-label { margin: 0 0 8px; color: var(--cyan-dark); font: 900 11px/1 Arial,sans-serif; letter-spacing: .16em; }
+    .sponsor-lead h2, .sponsor-card h3 { margin: 0; line-height: 1.35; }
+    .sponsor-lead h2 { font-size: 24px; }
+    .sponsor-card h3 { font-size: 17px; }
+    .sponsor-lead p, .sponsor-card p { margin: 10px 0 0; color: #666; font-size: 13px; }
+    .sponsor-card strong { display: block; margin-top: 14px; color: var(--cyan-dark); font-size: 12px; }
 
     .page-hero { padding: 46px 0 30px; background: var(--soft); border-bottom: 1px solid #ddd; }
     .page-hero h1 { margin: 0; font-size: clamp(30px,4vw,50px); }
@@ -314,6 +325,10 @@
     .side-score .score-value { margin: 8px 0 14px; }
     .side-score button { width: 100%; }
     .side-note { background: var(--soft); padding: 18px; font-size: 12px; }
+    .side-sponsor { border: 1px solid #bbb; padding: 18px; background: #fffef0; font-size: 12px; }
+    .side-sponsor h3 { margin: 4px 0 8px; font-size: 16px; }
+    .side-sponsor p { margin: 0 0 12px; color: #666; }
+    .side-sponsor a { display: inline-block; font-weight: 900; border-bottom: 2px solid var(--cyan); }
 
     .toast { position: fixed; left: 50%; bottom: 86px; z-index: 100; transform: translate(-50%,20px); opacity: 0; pointer-events: none; background: #111; color: #fff; padding: 12px 18px; border-radius: 999px; font-weight: 800; transition: .25s; }
     .toast.is-visible { opacity: 1; transform: translate(-50%,0); }
@@ -343,6 +358,9 @@
       .score-board > div:nth-child(2) { border-right: 0; }
       .score-board > div:last-child { grid-column: 1/-1; border-top: 1px solid #ddd; min-height: 80px; }
       .mall-grid, .market-grid { grid-template-columns: repeat(2,1fr); }
+      .sponsor-grid { grid-template-columns: repeat(2,1fr); }
+      .sponsor-lead, .sponsor-card { border-bottom: 1px solid #bbb; }
+      .sponsor-card:nth-child(2n) { border-right: 0; }
       .journey { grid-template-columns: repeat(2,1fr); }
       .category-strip { grid-template-columns: repeat(3,1fr); }
       .category-strip button:nth-child(3) { border-right: 0; }
@@ -374,6 +392,8 @@
       .journey { grid-template-columns: 1fr; }
       .updates { grid-template-columns: 1fr; }
       .update-card { grid-template-columns: 110px 1fr; }
+      .sponsor-grid { grid-template-columns: 1fr; }
+      .sponsor-lead, .sponsor-card { min-height: auto; border-right: 0; }
       .market-grid { gap: 10px; }
       .product-card > div:last-child { padding: 12px; }
       .product-card h3 { font-size: 14px; }
@@ -460,6 +480,15 @@
         </div>
       </section>
 
+      <section class="sponsor-strip" aria-label="スポンサー枠">
+        <div class="container sponsor-grid">
+          <div class="sponsor-lead"><p class="sponsor-label">SPONSORED EXPERIENCE</p><h2>記事の関心を、広告主の体験へ。</h2><p>掲載事業者やグループ事業のキャンペーンを、ANNEX内の自然な導線として設計できます。</p></div>
+          <article class="sponsor-card"><p class="sponsor-label">HOTEL</p><h3>ホテルトラッド博多 宿泊プラン</h3><p>記事を読んだ読者へ、福岡滞在の提案を届ける協賛枠。</p><strong>広告・送客枠</strong></article>
+          <article class="sponsor-card"><p class="sponsor-label">CITY</p><h3>OHASHI HILL イベント告知</h3><p>地域イベントや施設利用を、体験スコアと接続できます。</p><strong>親会社シナジー枠</strong></article>
+          <article class="sponsor-card"><p class="sponsor-label">PARTNER</p><h3>特集事業者の限定キャンペーン</h3><p>記事掲載後の販促を、ANNEX内で継続的に展開。</p><strong>クライアント枠</strong></article>
+        </div>
+      </section>
+
       <section class="section soft">
         <div class="container">
           <div class="section-head"><div><h2 class="section-title">読んで、動いて、応援になる<span class="en">HOW ANNEX WORKS</span></h2></div></div>
@@ -511,7 +540,7 @@
           <div class="detail-panel" data-detail-panel="shop"><div class="section-head"><div><h2 class="section-title" style="font-size:27px">この主役のマーケット<span class="en">MARKET</span></h2></div></div><div class="market-grid" style="grid-template-columns:repeat(2,1fr)" data-detail-products></div></div>
           <div class="detail-panel" data-detail-panel="articles"><div class="section-head"><div><h2 class="section-title" style="font-size:27px">まずは記事から<span class="en">STORIES ON FUKURIPA</span></h2></div></div><div class="article-archive" data-detail-articles></div></div>
         </div>
-        <aside class="detail-side"><div class="side-score"><h2>あなたとこの主役の応援スコア</h2><p class="score-value"><span data-partner-score>0</span><span> pt</span></p><button class="primary" data-earn="30" data-earn-label="お気に入り登録">お気に入りに追加 +30pt</button></div><div class="side-note"><strong>フクリパとのつながり</strong><p>このページはフクリパ掲載記事を入口にした体験ページです。最新の取材内容は、本家フクリパの記事で確認できます。</p></div></aside>
+        <aside class="detail-side"><div class="side-score"><h2>あなたとこの主役の応援スコア</h2><p class="score-value"><span data-partner-score>0</span><span> pt</span></p><button class="primary" data-earn="30" data-earn-label="お気に入り登録">お気に入りに追加 +30pt</button></div><div class="side-note"><strong>フクリパとのつながり</strong><p>このページはフクリパ掲載記事を入口にした体験ページです。最新の取材内容は、本家フクリパの記事で確認できます。</p></div><div class="side-sponsor"><p class="sponsor-label">ANNEX AD</p><h3>関連する体験広告</h3><p>この主役に関心のある読者へ、宿泊・イベント・商品を自然に提案できます。</p><a href="#market" data-route="market">広告枠のイメージを見る</a></div></aside>
       </div></section>
     </div>
   </main>
