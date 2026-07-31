@@ -243,7 +243,23 @@
     .member-card h2 { margin: 0; font-size: 22px; }
     .member-card .big-score { margin: 8px 0 0; font: 900 42px/1 Arial,sans-serif; }
     .member-card .big-score span { font-size: 14px; }
-    .member-card .member-id { margin: 30px 0 0; font: 12px/1.4 monospace; }
+    .member-card .member-id { margin: 30px 0 0; font: 12px/1.4 monospace; color: #555; }
+    .member-card-footer { display: flex; justify-content: space-between; align-items: end; gap: 18px; margin-top: 34px; }
+    .member-qr { width: 86px; aspect-ratio: 1; padding: 7px; background: #fff; border: 1px solid #111; }
+    .member-qr-grid {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      background:
+        linear-gradient(90deg,#111 8px,transparent 8px 14px,#111 14px 22px,transparent 22px 30px,#111 30px 38px,transparent 38px 46px,#111 46px 54px,transparent 54px 62px,#111 62px 70px),
+        linear-gradient(#111 8px,transparent 8px 14px,#111 14px 22px,transparent 22px 30px,#111 30px 38px,transparent 38px 46px,#111 46px 54px,transparent 54px 62px,#111 62px 70px);
+      background-blend-mode: multiply;
+      opacity: .9;
+    }
+    .member-qr-grid::before,
+    .member-qr-grid::after { content: ""; position: absolute; width: 18px; height: 18px; background: #fff; border: 6px solid #111; }
+    .member-qr-grid::before { left: 0; top: 0; }
+    .member-qr-grid::after { right: 0; bottom: 0; }
     .history { border-top: 1px solid #bbb; }
     .history-row { display: grid; grid-template-columns: 1fr auto; gap: 12px; padding: 18px 0; border-bottom: 1px solid #bbb; }
     .history-row p { margin: 0; }
@@ -480,7 +496,7 @@
     <div class="view" data-view="profile">
       <header class="page-hero"><div class="container"><p class="eyebrow">MY ANNEX</p><h1>マイページ</h1><p>記事から始まった体験と、あなたが積み上げた福岡への応援を振り返れます。</p></div></header>
       <section class="section"><div class="container profile-layout">
-        <article class="member-card"><div class="brand"><img src="https://fukuoka-leapup.jp/app/wp-content/themes/flu2023/assets/images/logo.svg" alt="フクリパ"><span class="annex-mark">ANNEX</span></div><p class="score-label">MEMBER</p><h2>福岡 めぐる さん</h2><p class="big-score"><span data-score>1,260</span><span> pt</span></p><p>称号：福岡まち歩き編集員</p><p class="member-id">FLA-2026-0713<br>FUKURIPA MEMBER LINKED</p></article>
+        <article class="member-card"><div class="brand"><img src="https://fukuoka-leapup.jp/app/wp-content/themes/flu2023/assets/images/logo.svg" alt="フクリパ"><span class="annex-mark">ANNEX</span></div><p class="score-label">MEMBER</p><h2>福岡 めぐる さん</h2><p class="big-score"><span data-score>1,260</span><span> pt</span></p><p>称号：福岡まち歩き編集員</p><div class="member-card-footer"><p class="member-id">FLA-2026-0713<br>ANNEX DEMO PASS</p><div class="member-qr" aria-label="仮QRコード"><div class="member-qr-grid"></div></div></div></article>
         <div><h2 class="section-title" style="font-size:26px">応援の履歴<span class="en">SUPPORT HISTORY</span></h2><div class="history" data-history></div></div>
       </div></section>
     </div>
